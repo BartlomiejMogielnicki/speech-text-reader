@@ -42,8 +42,6 @@ button {
     cursor: pointer;
 }
 
-
-
 .text-box {
     position: absolute;
     top: 50%;
@@ -61,7 +59,6 @@ button {
     color: white;
     transition: .3s linear;
 }
-
 
 .text-box.hide {
     transform: translate(-50%, -250%);
@@ -128,7 +125,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 
 .box img {
@@ -149,4 +146,48 @@ main {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     color: white;
+}
+
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .box {
+        width: 45vw;
+        height: 45vw;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .box {
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .box {
+        width: 22vw;
+        height: 22vw;
+    }
+}
+
+@media (min-width: 1500px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .box {
+        width: 18vw;
+        height: 18vw;
+    }
 }
