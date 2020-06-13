@@ -55,3 +55,16 @@ const data = [{
         text: "I want to go to grandma"
     },
 ]
+
+// Create boxes
+const createBox = (item) => {
+    const boxEl = document.createElement('div');
+    boxEl.classList.add('box');
+    boxEl.innerHTML = `
+    <img src="${item.image}" alt="Box picture">
+    <h3 class="speech-text">${item.text}</h3>`
+
+    main.appendChild(boxEl);
+}
+
+data.forEach(createBox);
