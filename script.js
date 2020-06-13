@@ -1,4 +1,5 @@
 const main = document.querySelector('main');
+const textBox = document.getElementById('text-box');
 const selectVoice = document.getElementById('select-voice');
 const text = document.getElementById('text');
 const toggleBtn = document.getElementById('btn-toggle');
@@ -68,3 +69,12 @@ const createBox = (item) => {
 }
 
 data.forEach(createBox);
+
+// Event listeners
+toggleBtn.addEventListener('click', () => {
+    textBox.classList.toggle('hide');
+})
+
+closeBtn.addEventListener('click', () => {
+    textBox.classList.add('hide');
+})
