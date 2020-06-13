@@ -57,6 +57,18 @@ const data = [{
     },
 ]
 
+// Set read message
+const message = new SpeechSynthesisUtterance();
+
+const setMessage = (text) => {
+    message.text = text;
+}
+
+// Speak text
+const speakText = () => {
+    speechSynthesis.speak(message);
+}
+
 // Create boxes
 const createBox = (item) => {
     const boxEl = document.createElement('div');
@@ -65,12 +77,23 @@ const createBox = (item) => {
     <img src="${item.image}" alt="Box picture">
     <h3 class="speech-text">${item.text}</h3>`
 
+    boxEl.addEventListener('click', () => {
+        setMessage(item.text)
+        speakText();
+
+        // Add active class
+        boxEl.classList.add('active');
+        setTimeout(() => {
+            boxEl.classList.remove('active')
+        }, 800);
+    })
+
     main.appendChild(boxEl);
 }
 
 data.forEach(createBox);
 
-// Get voices and store them in the array
+// Get voices and add them to DOM
 let voices = [];
 
 const getVoices = () => {
