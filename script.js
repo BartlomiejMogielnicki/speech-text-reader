@@ -69,6 +69,11 @@ const speakText = () => {
     speechSynthesis.speak(message);
 }
 
+// Set voice
+const setVoice = (e) => {
+    message.voice = voices.find(voice => voice.name === e.target.value);
+}
+
 // Create boxes
 const createBox = (item) => {
     const boxEl = document.createElement('div');
@@ -121,5 +126,14 @@ closeBtn.addEventListener('click', () => {
 
 // Voices change
 speechSynthesis.addEventListener('voiceschanged', getVoices);
+
+// Voice select
+selectVoice.addEventListener('change', setVoice);
+
+// Read input text
+readBtn.addEventListener('click', () => {
+    setMessage(text.value);
+    speakText();
+})
 
 getVoices();
