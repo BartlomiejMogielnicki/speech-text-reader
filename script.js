@@ -70,11 +70,33 @@ const createBox = (item) => {
 
 data.forEach(createBox);
 
+// Get voices and store them in the array
+let voices = [];
+
+const getVoices = () => {
+    voices = speechSynthesis.getVoices();
+
+    voices.forEach(voice => {
+        const option = document.createElement('option');
+        option.value = voice.name;
+        option.textContent = `${voice.name} ${voice.lang}`
+
+        selectVoice.appendChild(option);
+    });
+}
+
 // Event listeners
+// Show and hide text box
 toggleBtn.addEventListener('click', () => {
     textBox.classList.toggle('hide');
 })
 
+// Hide text box with X
 closeBtn.addEventListener('click', () => {
     textBox.classList.add('hide');
 })
+
+// Voices change
+speechSynthesis.addEventListener('voiceschanged', getVoices);
+
+getVoices();
